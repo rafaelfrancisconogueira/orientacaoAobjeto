@@ -6,6 +6,8 @@ public class PrimeiroObjeto {
 
 	public static void main(String[] args) {
 		
+		// TESTE
+		
 		Aluno aluno01 = new Aluno("João",50);
 		Aluno aluno02 = new Aluno("Fabricio",10);
 		
