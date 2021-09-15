@@ -1,38 +1,85 @@
 package orientacaoAobjeto;
 
+import javax.swing.JOptionPane;
+
 import cursosjava.classes.Aluno;
+import cursosjava.classes.Disciplina;
 
 public class PrimeiroObjeto {
+
+	private static String disciplinaRemover;
 
 	public static void main(String[] args) {
 		
 		// TESTE
+		String nome = JOptionPane.showInputDialog("Qual e o nome do Aluno ");
+		String idade = JOptionPane.showInputDialog("Qual e a idade");
+		String dataNascimento = JOptionPane.showInputDialog("Qual e a data de nascimento");
+		String rg = JOptionPane.showInputDialog("Qual e o RG :");
+		String numeroCpf = JOptionPane.showInputDialog("Qual e o CPF");
+		String nomeMae = JOptionPane.showInputDialog("Qual e o nome da mãe?");
+		String nomePai = JOptionPane.showInputDialog("Qual e o nome do pai");
+		String serieMatriculado = JOptionPane.showInputDialog("Qual e o numero da matricula");
 		
-		Aluno aluno01 = new Aluno("João",50);
-		Aluno aluno02 = new Aluno("Fabricio",10);
+		
+		
+		Aluno aluno01 = new Aluno();
+		Aluno aluno02 = new Aluno();
+		
+		
 		
 		// System.out.println(aluno01.getNome());
-		
-		aluno01.setDataNascimento("03/01/1994");
-		aluno01.setRegistroGeral("000.3535.97");
-		aluno01.setNumeroCpf("150.951.017.40");
-		 aluno01.setNomeMae("Daniela");
-		aluno01.setNomePai("Joaquin");
-		aluno01.setSerieMatriculado("777.8888.999");
-		
-		aluno01.setNotaAluno01(60);
-		aluno01.setNotaAluno02(50);
-		aluno01.setNotaAluno03(80);
-		aluno01.setNotaAluno04(40);
-		
-		System.out.println("A media do Aluno 01 e de " + aluno01.getMediaNota());
+		aluno01.setNome(nome);
+		aluno01.setIdade(Integer.valueOf(idade));
+		aluno01.setDataNascimento(dataNascimento);
+		aluno01.setRegistroGeral(rg);
+		aluno01.setNumeroCpf(numeroCpf);
+		aluno01.setNomeMae(nomeMae);
+		aluno01.setNomePai(nomePai);
+		aluno01.setSerieMatriculado(serieMatriculado);
 		
 		
-
+		
+	   for(int pos = 1; pos <= 4; pos++) {
+		   
+		   String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina" + pos + "?");
+		   String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina" + pos + "?");
+		   
+		   Disciplina disciplina = new  Disciplina();
+		   disciplina.setDisciplina1(nomeDisciplina);
+		   disciplina.setNota1(Double.valueOf(notaDisciplina));
+		  
+		   aluno01.getDisciplina().add(disciplina);
+	   }
+	   
+	   int escolha = JOptionPane.showConfirmDialog(null, " Dseseja remover alguma disciplina?");
+	   
+	   if (escolha == 0) {
+		   
+		   String disciplinaRemover = JOptionPane.showInputDialog(" Qual materia deseja excluir 1 2 3 ou 4 ?");
+		   aluno01.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue() - 1);
+		   
+		   
+		   
+		   
+				   
+		   
+	   }
+		
+		System.out.println(aluno01.toString());
+		System.out.println("mediado aluno " + aluno01.getMediaNota());
+		System.out.println("Resultado " + aluno01.getAlunoAprovado());
 		
 		
-
+		
 	}
+		
+	}
+
+		
+		
+
+	
 	
 
-}
+
