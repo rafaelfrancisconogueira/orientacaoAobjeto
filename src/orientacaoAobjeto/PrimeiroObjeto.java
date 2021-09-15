@@ -1,5 +1,8 @@
 package orientacaoAobjeto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import cursosjava.classes.Aluno;
@@ -7,9 +10,13 @@ import cursosjava.classes.Disciplina;
 
 public class PrimeiroObjeto {
 
-	private static String disciplinaRemover;
+	
 
 	public static void main(String[] args) {
+		
+		List<Aluno> alunos = new ArrayList<Aluno>();
+		
+		for(int qtd = 1 ; qtd <=2; qtd++ );{
 		
 		// TESTE
 		String nome = JOptionPane.showInputDialog("Qual e o nome do Aluno ");
@@ -67,15 +74,18 @@ public class PrimeiroObjeto {
 		   continuaRemover = JOptionPane.showInternalConfirmDialog(null, continuaRemover);
 		   }
 		   
-		   
+	   }
 				   
-		   
+		   alunos.add(aluno01);
 	   }
 		
-		System.out.println(aluno01.toString());
-		System.out.println("mediado aluno " + aluno01.getMediaNota());
-		System.out.println("Resultado " + aluno01.getAlunoAprovado());
+		for(Aluno aluno : alunos) {
 		
+		System.out.println(aluno.toString());
+		System.out.println("mediado aluno " + aluno.getMediaNota());
+		System.out.println("Resultado " + aluno.getAlunoAprovado());
+		System.out.println("-------------------------------------------------------------------------------------");
+		}
 		
 		
 	}
