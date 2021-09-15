@@ -1,8 +1,13 @@
 package cursosjava.classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 public class Aluno {
-	
-	private String nome;
+
+	String nome;
 	int idade;
 	String dataNascimento;
 	String registroGeral;
@@ -12,20 +17,24 @@ public class Aluno {
 	String dataMatricula;
 	String nomeEscola;
 	String serieMatriculado;
-	private double notaAluno01;
-	private double notaAluno02;
-	private double notaAluno03;
-	private double notaAluno04;
 	
-	public Aluno(String nomePadrao,int idadePadrao) {
-		nome = nomePadrao;
-		idade = idadePadrao;
-	}
+   private List<Disciplina> Disciplina = new ArrayList<Disciplina>();
+   
+   public List<Disciplina> getDisciplina() {
+	return Disciplina;
+}
+   
+   
+   public void setDisciplina(List<Disciplina> disciplina) {
+	Disciplina = disciplina;
+}
+   
+  
 	
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -68,7 +77,7 @@ public class Aluno {
 
 	public String getNomeResponsavel() {
 		String responsavel = this.nomeMae == null ? nomePai : nomeMae;
-		return "Nome do responsavel: " +  responsavel;
+		return "Nome do responsavel: " + responsavel;
 	}
 
 	public void setNomePai(String nomePai) {
@@ -99,38 +108,7 @@ public class Aluno {
 		this.serieMatriculado = serieMatriculado;
 	}
 
-	public double getNotaAluno01() {
-		return notaAluno01;
-	}
-
-	public void setNotaAluno01(double notaAluno01) {
-		this.notaAluno01 = notaAluno01;
-	}
-
-	public double getNotaAluno02() {
-		return notaAluno02;
-	}
-
-	public void setNotaAluno02(double notaAluno02) {
-		this.notaAluno02 = notaAluno02;
-	}
-
-	public double getNotaAluno03() {
-		return notaAluno03;
-	}
-
-	public void setNotaAluno03(double notaAluno03) {
-		this.notaAluno03 = notaAluno03;
-	}
-
-	public double getNotaAluno04() {
-		return notaAluno04;
-	}
-
-	public void setNotaAluno04(double notaAluno04) {
-		this.notaAluno04 = notaAluno04;
-	}
-
+	
 	public String getNomeMae() {
 		return nomeMae;
 	}
@@ -138,8 +116,75 @@ public class Aluno {
 	public String getNomePai() {
 		return nomePai;
 	}
-public double getMediaNota() {
-	return (notaAluno01 + notaAluno02 + notaAluno03 + notaAluno04)/4;
-}
-}
+	
+	public double getMediaNota() {
+		
+	
+   double somaNotas = 0.0;
+   
+   for (Disciplina disciplina : this.Disciplina) {
+	   
+	   somaNotas += disciplina.getNota1();
+	   
+	   
+	   
+	   }
+return somaNotas / 4;
+	
+	}
+	
+	
+	/* METODO PARA SABE SE O ALUNO FOI APROVADO */
+	public boolean getAlunoAprovado() {
+		double media = this.getMediaNota();
+		if (media >= 70) {
+			return true;
+		} else {
+			return false;
+		}
 
+	}
+
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((numeroCpf == null) ? 0 : numeroCpf.hashCode());
+		result = prime * result + ((registroGeral == null) ? 0 : registroGeral.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aluno other = (Aluno) obj;
+		if (numeroCpf == null) {
+			if (other.numeroCpf != null)
+				return false;
+		} else if (!numeroCpf.equals(other.numeroCpf))
+			return false;
+		if (registroGeral == null) {
+			if (other.registroGeral != null)
+				return false;
+		} else if (!registroGeral.equals(other.registroGeral))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
+				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
+				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado="
+				+ serieMatriculado + ", Disciplina=" + Disciplina + "]";
+	}
+
+	
+
+}
