@@ -56,10 +56,16 @@ public class PrimeiroObjeto {
 	   
 	   if (escolha == 0) {
 		   
+		   int continuaRemover = 0;
+		   int posicao = 1;
+		   
+		   while (continuaRemover ==0) {
+			   
 		   String disciplinaRemover = JOptionPane.showInputDialog(" Qual materia deseja excluir 1 2 3 ou 4 ?");
-		   aluno01.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue() - 1);
-		   
-		   
+		   aluno01.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue() - posicao);
+		   posicao ++;
+		   continuaRemover = JOptionPane.showInternalConfirmDialog(null, continuaRemover);
+		   }
 		   
 		   
 				   
