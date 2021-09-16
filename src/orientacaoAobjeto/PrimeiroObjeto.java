@@ -16,11 +16,11 @@ public class PrimeiroObjeto {
 		
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
-		for(int qtd = 1 ; qtd <=2; qtd++ );{
+		for(int qtd = 1 ; qtd <=2; qtd++ ){
 		
 		// TESTE
-		String nome = JOptionPane.showInputDialog("Qual e o nome do Aluno ");
-		String idade = JOptionPane.showInputDialog("Qual e a idade");
+		String nome = JOptionPane.showInputDialog("Qual e o nome do Aluno " + qtd);
+	    String idade = JOptionPane.showInputDialog("Qual e a idade");
 		String dataNascimento = JOptionPane.showInputDialog("Qual e a data de nascimento");
 		String rg = JOptionPane.showInputDialog("Qual e o RG :");
 		String numeroCpf = JOptionPane.showInputDialog("Qual e o CPF");
@@ -59,7 +59,7 @@ public class PrimeiroObjeto {
 		   aluno01.getDisciplina().add(disciplina);
 	   }
 	   
-	   int escolha = JOptionPane.showConfirmDialog(null, " Dseseja remover alguma disciplina?");
+	   int escolha = JOptionPane.showConfirmDialog(null, " Deseja remover alguma disciplina?");
 	   
 	   if (escolha == 0) {
 		   
@@ -78,21 +78,17 @@ public class PrimeiroObjeto {
 				   
 		   alunos.add(aluno01);
 	   }
+	for (int pos = 0; pos < alunos.size();pos++ ){
 		
-		for(Aluno aluno : alunos) {
+		Aluno aluno = alunos.get(pos);
 		
-		System.out.println(aluno.toString());
-		System.out.println("mediado aluno " + aluno.getMediaNota());
-		System.out.println("Resultado " + aluno.getAlunoAprovado());
-		System.out.println("-------------------------------------------------------------------------------------");
-		}
-		
-		
+		System.out.println("Aluno" + aluno.getNome());
+		System.out.println("Media do Aluno" + aluno.getMediaNota());
+		System.out.println("Resultado" + aluno.getAlunoAprovado());
 	}
-		
 	}
 
-		
+}
 		
 
 	
