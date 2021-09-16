@@ -29,12 +29,8 @@ public class PrimeiroObjeto {
 		String serieMatriculado = JOptionPane.showInputDialog("Qual e o numero da matricula");
 		
 		
-		
 		Aluno aluno01 = new Aluno();
 		Aluno aluno02 = new Aluno();
-		
-		
-		
 		// System.out.println(aluno01.getNome());
 		aluno01.setNome(nome);
 		aluno01.setIdade(Integer.valueOf(idade));
